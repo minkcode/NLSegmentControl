@@ -92,15 +92,15 @@ public class NLSegmentControl: UIView {
     }
     
     /// Text attributes to apply to labels of the unselected segments
-    public var titleTextAttributes: [String: AnyObject] = [
-        NSFontAttributeName: UIFont.systemFont(ofSize: 14),
-        NSForegroundColorAttributeName: UIColor.black
+    public var titleTextAttributes: [NSAttributedStringKey: AnyObject] = [
+        NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14),
+        NSAttributedStringKey.foregroundColor: UIColor.black
         ]
     
     /// Text attributes to apply to labels of the selected segments
-    public var selectedTitleTextAttributes: [String:AnyObject] = [
-        NSFontAttributeName: UIFont.systemFont(ofSize: 14),
-        NSForegroundColorAttributeName: UIColor.black
+    public var selectedTitleTextAttributes: [NSAttributedStringKey: AnyObject] = [
+        NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14),
+        NSAttributedStringKey.foregroundColor: UIColor.black
         ]
     
     /// Vertical divider between the segments. Default is false
@@ -598,7 +598,7 @@ fileprivate extension UIButton {
         
         let imageWidth = imageView?.image?.size.width ?? 0
         let imageHeight = imageView?.image?.size.height ?? 0
-        let labelSize = NSString(string: titleLabel?.text ?? "").size(attributes: [NSFontAttributeName: titleLabel?.font ?? UIFont.systemFont(ofSize: 12)])
+        let labelSize = NSString(string: titleLabel?.text ?? "").size(withAttributes: [NSAttributedStringKey.font: titleLabel?.font ?? UIFont.systemFont(ofSize: 12)])
         let labelWidth = labelSize.width
         let labelHeight = labelSize.height
         
